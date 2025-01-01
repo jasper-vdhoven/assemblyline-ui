@@ -234,7 +234,7 @@ def submit(**kwargs):
 
             The multipart/form-data for sending binary has two parts:
                 - The first part contains a JSON dump of the optional params and uses the name 'json'
-                - The last part conatins the file binary, uses the name 'bin' and includes a filename
+                - The last part contains the file binary, uses the name 'bin' and includes a filename
 
             If your system can handle the memory footprint and slowdown, you can also submit a file
             via the plaintext (not encoded) or base64 (encoded) parameters included in the data block.
@@ -263,7 +263,7 @@ def submit(**kwargs):
 
       "params": {                 # Submission parameters
         "key": val,                 # Key/Value pair for params that differ from the user's defaults
-      },                            # Default params can be fetch at /api/v3/user/submission_params/<user>/
+      },                            # Default params can be fetched at /api/v3/user/submission_params/<user>/
     }
 
     Data Block (Binary):

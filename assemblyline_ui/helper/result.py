@@ -81,7 +81,7 @@ def filter_sections(sections, user_classification, min_classification):
     if len(sections) != len(final_sections):
         hidden_section = dict(
             body="One of the sections produced by the service has been removed because you do not have enough "
-                 "priviledges to see its results. \n\nContact system administrators for more information.",
+                 "privileges to see its results. \n\nContact system administrators for more information.",
             title_text="WARNING: Service sections have been sanitized",
             depth=0,
             classification=CLASSIFICATION.UNRESTRICTED,
@@ -108,7 +108,7 @@ def format_result(user_classification, r, min_classification, build_hierarchy=Fa
         r['response'][ftype] = [x for x in r['response'][ftype]
                                 if CLASSIFICATION.is_accessible(user_classification, x['classification'])]
 
-    # Set result classification to at least min but no more then viewable result classification
+    # Set result classification to at least min but no more than viewable result classification
     r['classification'] = CLASSIFICATION.max_classification(max_classification, min_classification)
 
     if build_hierarchy:

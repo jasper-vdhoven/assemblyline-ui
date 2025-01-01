@@ -53,7 +53,7 @@ class api_login(BaseSecurityRenderer):
             with elasticapm.capture_span(name="auto_auth_check", span_type="authentication"):
                 try:
                     # TODO: apikey_handler is slow to verify the password (bcrypt's fault)
-                    #       We could fix this by saving the hash of the combinaison of the
+                    #       We could fix this by saving the hash of the combination of the
                     #       APIkey and the username in an ExpiringSet and looking it up for
                     #       sub-sequent calls...
                     validated_user, roles_limit = validate_apikey(uname, apikey, STORAGE)

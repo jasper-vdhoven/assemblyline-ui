@@ -24,5 +24,5 @@ certfile = env.get('CERTFILE')
 keyfile = env.get('KEYFILE')
 
 # Request header max size configuration
-#  NOTE: This allows to pass JWT tokens bigger then 8k to AL through the headers
+#  NOTE: This allows to pass JWT tokens bigger than 8k to AL through the headers
 limit_request_field_size = int(env.get("LIMIT_REQUEST_FIELD_SIZE", "8190"))

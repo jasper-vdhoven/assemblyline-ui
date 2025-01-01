@@ -130,7 +130,7 @@ def search(index, **kwargs):
                          "workflow_view", "retrohunt_view", "badlist_view"])
 def group_search(index, group_field, **kwargs):
     """
-    Search through all relevant indexs for a given query and
+    Search through all relevant indexes for a given query and
     groups the data based on a specific field.
     Uses lucene search syntax for query.
 
@@ -266,9 +266,9 @@ def list_index_fields(index, **kwargs):
                          "workflow_view", "retrohunt_view", "badlist_view"])
 def facet(index, field, **kwargs):
     """
-    Perform field analysis on the selected field. (Also known as facetting in lucene)
+    Perform field analysis on the selected field. (Also known as faceting in lucene)
     This essentially counts the number of instances a field is seen with each specific values
-    where the documents matches the specified queries.
+    where the documents match the specified queries.
 
     Variables:
     index          =>   Index to search in (alert, submission,...)
@@ -354,7 +354,7 @@ def facet(index, field, **kwargs):
                          "workflow_view", "retrohunt_view", "badlist_view"])
 def histogram(index, field, **kwargs):
     """
-    Generate an histogram based on a time or and int field using a specific gap size
+    Generate a histogram based on a time or and int field using a specific gap size
 
     Variables:
     index          =>   Index to search in (alert, submission,...)

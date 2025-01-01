@@ -135,7 +135,7 @@ def get_external_details(
 
     status_code = rsp.status_code
     if status_code == 404 or status_code == 422:
-        # continue searching configured sources if not found or invliad tag.
+        # continue searching configured sources if not found or invalid tag.
         result["error"] = HNF
     elif status_code != 200:
         # as we query across multiple sources, just log errors.
@@ -296,7 +296,7 @@ def search_hash(file_hash, *args, **kwargs):
     else:
         if any({s["error"] for s in res}):
             status_code = 500
-            error = "One or more errors occured. See individual source results for more details."
+            error = "One or more errors occurred. See individual source results for more details."
 
     return make_api_response(results, err=error, status_code=status_code)
 

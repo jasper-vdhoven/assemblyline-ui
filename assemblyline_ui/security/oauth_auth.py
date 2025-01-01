@@ -85,7 +85,7 @@ def validate_oauth_token(oauth_token, oauth_provider, return_user=False):
             # Get user's email from profile
             email = parse_profile(jwt_data, oauth_provider_config).get('email', None)
             if email is not None:
-                # Get user from it's email
+                # Get user from its email
                 users = STORAGE.user.search(f"email:{email}", fl="*", as_obj=False, rows=1)['items']
                 if users:
                     # Limit user logging in from external token to only user READ/WRITE APIs

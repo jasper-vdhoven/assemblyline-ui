@@ -203,7 +203,7 @@ def get_default_user_quotas(user_profile: dict):
 
 
 def save_user_account(username, data, user):
-    # Clear non user account data
+    # Clear non-user account data
     avatar = data.pop('avatar', None)
     data.pop('2fa_enabled', None)
     data.pop('security_token_enabled', None)

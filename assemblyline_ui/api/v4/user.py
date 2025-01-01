@@ -86,7 +86,7 @@ def who_am_i(**kwargs):
          "allow_security_tokens": True,             # Are Security tokens allowed for the user
        },
        "retrohunt": {                            # Retrohunt Configuration
-         "enabled": False,                          # Is the retrohunt functionnality enabled
+         "enabled": False,                          # Is the retrohunt functionality enabled
          "dtl": 10,                                 # Default number of days retrohunt job stay in the system
          "max_dtl": 30,                             # Maximum number of days retrohunt job stay in the system
        },
@@ -322,7 +322,7 @@ def add_user_account(username, **_):
 
     Result example:
     {
-     "success": true             # Saving the user info succeded
+     "success": true             # Saving the user info succeeded
     }
     """
 
@@ -347,10 +347,10 @@ def add_user_account(username, **_):
         if not data['name']:
             data['name'] = data['uname']
 
-        # Add add dynamic classification group
+        # Add dynamic classification group
         data['classification'] = get_dynamic_classification(data['classification'], data)
 
-        # Clear non user account data
+        # Clear non-user account data
         avatar = data.pop('avatar', None)
 
         if avatar is not None:
@@ -486,7 +486,7 @@ def set_user_account(username, **kwargs):
 
     Result example:
     {
-     "success": true             # Saving the user info succeded
+     "success": true             # Saving the user info succeeded
     }
     """
     try:
@@ -533,7 +533,7 @@ def set_user_account(username, **kwargs):
             except Exception as e:
                 # We can't send confirmation email, Rollback user change and mark this a failure
                 STORAGE.user.save(username, get_default_user_quotas(old_user))
-                LOGGER.error(f"An error occured while sending confirmation emails: {str(e)}")
+                LOGGER.error(f"An error occurred while sending confirmation emails: {str(e)}")
                 return make_api_response({"success": False}, "The system was unable to send confirmation emails. "
                                                              "Retry again later...", 404)
 
@@ -883,7 +883,7 @@ def get_user_settings(username, **kwargs):
     Result example:
     {
      "profile": true,                 # Should submissions be profiled
-     "classification": "",            # Default classification for this user sumbissions
+     "classification": "",            # Default classification for this user submissions
      "description": "",               # Default description for this user's submissions
      "download_encoding": "blah",     # Default encoding for downloaded files
      "default_zip_password": "pass",  # Default password for password protected ZIP
@@ -922,7 +922,7 @@ def set_user_settings(username, **kwargs):
     Data Block:
     {
      "profile": true,                       # Should submissions be profiled
-     "classification": "",                  # Default classification for this user sumbissions
+     "classification": "",                  # Default classification for this user submissions
      "default_zip_password": "zippy"        # Default password used for protected file downloads
      "description": "",                     # Default description for this user's submissions
      "download_encoding": "blah",           # Default encoding for downloaded files
@@ -983,7 +983,7 @@ def get_user_submission_params(username, **kwargs):
     Result example:
     {
      "profile": true,               # Should submissions be profiled
-     "classification": "",          # Default classification for this user sumbissions
+     "classification": "",          # Default classification for this user submissions
      "description": "",             # Default description for this user's submissions
      "priority": 1000,              # Default submission priority
      "service_spec": [],            # Default Service specific parameters
@@ -1030,7 +1030,7 @@ def agree_with_tos(username, **kwargs):
 
     Result example:
     {
-     "success": true             # Saving the user info succeded
+     "success": true             # Saving the user info succeeded
     }
     """
     logged_in_user = kwargs['user']

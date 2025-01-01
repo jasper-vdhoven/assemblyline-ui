@@ -119,7 +119,7 @@ def test_get_mappings(test_client):
 
 
 def test_hash_found(test_client, mock_lookup_success):
-    """Validate respone for a hash that exists."""
+    """Validate response for a hash that exists."""
     data = mock_lookup_success()
     digest = data["items"][0]["id"].split(".", 1)[0]
 
@@ -143,7 +143,7 @@ def test_hash_found(test_client, mock_lookup_success):
 
 
 def test_hash_dne(test_client, mock_lookup_success):
-    """Validate respone for a hash that does not exists."""
+    """Validate response for a hash that does not exist."""
     mock_lookup_success(items=[])
 
     rsp = test_client.get(f"/details/md5/{dquote('a' * 32)}/", query_string={"nodata": True})

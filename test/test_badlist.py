@@ -39,7 +39,7 @@ ADMIN_SOURCE = {
     "classification": CLASSIFICATION.UNRESTRICTED,
     "name": "admin",
     "reason": [
-        "It's denifitely bad",
+        "It's definitely bad",
     ],
     "type": "user"}
 

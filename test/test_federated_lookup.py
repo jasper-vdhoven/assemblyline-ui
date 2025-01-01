@@ -54,7 +54,7 @@ def test_client(ext_config):
 
 @pytest.fixture()
 def user_login_session(test_client):
-    """Setup a login session for the test_client."""
+    """Set up a login session for the test_client."""
     r = test_client.post("/api/v4/auth/login/", data={"user": "user", "password": "user"})
     for name, value in r.headers:
         if name == "Set-Cookie" and "XSRF-TOKEN" in value:
@@ -67,7 +67,7 @@ def user_login_session(test_client):
 
 @pytest.fixture()
 def admin_login_session(test_client):
-    """Setup a login session for the test_client."""
+    """Set up a login session for the test_client."""
     r = test_client.post("/api/v4/auth/login/", data={"user": "admin", "password": "admin"})
     for name, value in r.headers:
         if name == "Set-Cookie" and "XSRF-TOKEN" in value:
@@ -917,7 +917,7 @@ def test_get_all_tag_names(ext_config, mocker, mock_mb_tags_response, mock_vt_ta
 
     When a request for all valid tag names is submitted
 
-    Then the the local cache should receive all tag names supported by both sources
+    Then the local cache should receive all tag names supported by both sources
     """
 
     mock_session = mocker.MagicMock(autospec=True)

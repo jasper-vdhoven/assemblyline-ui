@@ -159,7 +159,7 @@ def ingest_single_file(**kwargs):
 
       "params": {                 # Submission parameters
         "key": val,                 # Key/Value pair for params that differ from the user's defaults
-      },                            # Default params can be fetch at /api/v3/user/submission_params/<user>/
+      },                            # Default params can be fetched at /api/v3/user/submission_params/<user>/
 
       "generate_alert": False,        # Generate an alert in our alerting system or not
       "notification_queue": None,     # Name of the notification queue
@@ -301,7 +301,7 @@ def ingest_single_file(**kwargs):
             with open(out_file, "wb") as my_file:
                 shutil.copyfileobj(binary, my_file, 16384)
 
-        # Determine where the file exists and whether or not we need to re-upload to hot storage
+        # Determine where the file exists and whether we need to re-upload to hot storage
         if found and string_type != "url":
             if not fileinfo:
                 # File was downloaded from an external source but wasn't known to the system
@@ -310,10 +310,10 @@ def ingest_single_file(**kwargs):
                 # File is in storage and the DB no need to upload anymore
                 do_upload = False
             elif FILESTORE != ARCHIVESTORE and ARCHIVESTORE.exists(fileinfo['sha256']):
-                # File is only in archivestorage so I'll still need to upload it to the hot storage
+                # File is only in archivestorage, so I'll still need to upload it to the hot storage
                 do_upload = True
             else:
-                # Corner case: If we do know about the file but it doesn't exist in our filestores
+                # Corner case: If we do know about the file, but it doesn't exist in our filestores
                 do_upload = True
 
         if do_upload and os.path.getsize(out_file) == 0:
@@ -421,7 +421,7 @@ def ingest_single_file(**kwargs):
             if metadata_error:
                 return make_api_response({}, err=metadata_error[1], status_code=400)
 
-        # Set description if it does not exists
+        # Set description if it does not exist
         if fileinfo["type"].startswith("uri/") and "uri_info" in fileinfo and "uri" in fileinfo["uri_info"]:
             default_description = f"Inspection of URL: {fileinfo['uri_info']['uri']}"
         s_params['description'] = s_params['description'] or f"[{s_params['type']}] {default_description}"

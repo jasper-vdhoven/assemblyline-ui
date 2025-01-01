@@ -26,7 +26,7 @@ def authenticate_begin(username, **_):
     Begin authentication procedure
 
     Variables:
-    username     user name of the user you want to login with
+    username     username of the user you want to log in with
 
     Arguments:
     None

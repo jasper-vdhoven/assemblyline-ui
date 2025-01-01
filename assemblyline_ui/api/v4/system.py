@@ -691,7 +691,7 @@ def put_system_status(component, **_):
     Set the status of system components.
 
     Variables:
-    component           => Component that staus change should apply to
+    component           => Component that status change should apply to
 
     Arguments:
     active              => Should the component be active? (True or False)
@@ -726,7 +726,7 @@ def put_system_status(component, **_):
 @api_login(require_role=[ROLES.administration], count_toward_quota=False)
 def get_post_processing_actions(**_):
     """
-    Get rules to determine post processing actions.
+    Get rules to determine post-processing actions.
 
     Variables:
     None
@@ -770,7 +770,7 @@ def get_post_processing_actions(**_):
 @api_login(require_role=[ROLES.administration], count_toward_quota=False)
 def put_post_processing_actions(**_):
     """
-    Save a new version of the post processing actions.
+    Save a new version of the post-processing actions.
 
     Variables:
     None

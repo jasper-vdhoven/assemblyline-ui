@@ -68,7 +68,7 @@ def generate_ontology_file(results, user, updates={}, fnames={}):
 
                         sio.write(json.dumps(ontology, indent=None, separators=(',', ':')) + '\n')
                 except Exception as e:
-                    LOGGER.warning(f"An error occured while parsing ontology files: {str(e)}")
+                    LOGGER.warning(f"An error occurred while parsing ontology files: {str(e)}")
 
     # Flush and reset buffer
     sio.flush()
@@ -130,7 +130,7 @@ def get_ontology_for_alert(alert_id, **kwargs):
             tmp_keys.extend([k for k in keys if k.startswith(sha256)])
         keys = tmp_keys
 
-    # Only use keys matching theses services
+    # Only use keys matching these services
     if services:
         tmp_keys = []
         for service in services:
@@ -216,7 +216,7 @@ def get_ontology_for_submission(sid, **kwargs):
             tmp_keys.extend([k for k in keys if k.startswith(sha256)])
         keys = tmp_keys
 
-    # Only use keys matching theses services
+    # Only use keys matching these services
     if services:
         tmp_keys = []
         for service in services:
@@ -271,7 +271,7 @@ def get_ontology_for_file(sha256, **kwargs):
 
     Arguments:
     service     => Only get ontology files for this service, multiple values allowed (optional)
-    all         => If there multiple ontology results for the same file get them all
+    all         => If there are multiple ontology results for the same file get them all
 
     Data Block:
     None

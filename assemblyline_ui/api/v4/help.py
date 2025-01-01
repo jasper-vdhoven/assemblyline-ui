@@ -220,6 +220,6 @@ def get_terms_of_service(**_):
     None
 
     Result example:
-    Terms of service as markdown format
+    Terms of service as Markdown format
     """
     return make_api_response(config.ui.tos)

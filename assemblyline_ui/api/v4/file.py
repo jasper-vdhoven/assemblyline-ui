@@ -268,7 +268,7 @@ def summarized_results(sha256, **kwargs):
     None
 
     API call example:
-    /api/v4/file/ai/123456...654321/
+    /api/v4/file/api/123456...654321/
 
     Result example:
     {
@@ -947,7 +947,7 @@ def find_similar_files(sha256, **kwargs):
       {
             "items": []            # List of files hash
             "total": 201,          # Total files through this relation type
-            "type": 'tlsh'         # Type of relationship used to finds thoses files
+            "type": 'tlsh'         # Type of relationship used to finds those files
             "value": 'T123...123'  # Value used to do the relation
       },
       ...

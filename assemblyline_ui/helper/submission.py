@@ -109,7 +109,7 @@ def fetch_file(method: str, input: str, user: dict, s_params: dict, metadata: di
             if not config.ui.allow_url_submissions:
                 raise PermissionError("URL submissions are disabled in this system")
 
-            # Create an AL-URI file to be tasked by a downloader service (ie. URLDownloader)
+            # Create an AL-URI file to be tasked by a downloader service (i.e. URLDownloader)
             with tempfile.TemporaryDirectory() as dir_path:
                 shutil.move(make_uri_file(dir_path, input), out_file)
 
@@ -155,7 +155,7 @@ def fetch_file(method: str, input: str, user: dict, s_params: dict, metadata: di
                     if not config.ui.allow_url_submissions:
                         raise PermissionError("URL submissions are disabled in this system")
 
-                    # Create an AL-URI file to be tasked by a downloader service (ie. URLDownloader)
+                    # Create an AL-URI file to be tasked by a downloader service (i.e. URLDownloader)
                     with tempfile.TemporaryDirectory() as dir_path:
                         shutil.move(make_uri_file(dir_path, src_url), out_file)
 

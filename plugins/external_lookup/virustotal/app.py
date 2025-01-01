@@ -353,7 +353,7 @@ class Enricher():
                             for key, value in json.loads(txt_conf).items():
                                 self._add("configuration_extraction", name=key, value=value)
             else:
-                # rely on out dated API docs... this will probably results in a dict being returned...
+                # rely on out dated API docs... this will probably result in a dict being returned...
                 self._add("configuration_extraction", k, value=v)
 
         # Networking
@@ -417,7 +417,7 @@ class Enricher():
         self._add("linked_urls", "redirection_chain")
         self._add("linked_urls", "outgoing_links")
 
-        # Last reponse
+        # Last response
         self._add("last_response", "has_content")
         self._add("last_response", "content_sha256", key="last_http_response_content_sha256")
         self._add("last_response", "response_code", key="last_http_response_code")

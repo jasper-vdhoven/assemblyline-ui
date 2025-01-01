@@ -9,7 +9,7 @@ from assemblyline_ui.http_exceptions import AuthenticationException
 @elasticapm.capture_span(span_type='authentication')
 def validate_apikey(username, apikey, storage):
     # This function identifies the user via the internal API key functionality
-    #   NOTE: It is not recommended to overload this function but you can still do it
+    #   NOTE: It is not recommended to overload this function, but you can still do it
     if not config.auth.allow_apikeys and apikey:
         raise AuthenticationException("APIKey login is disabled")
 

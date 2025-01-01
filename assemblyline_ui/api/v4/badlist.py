@@ -652,7 +652,7 @@ def set_expiry(qhash, **_):
 @api_login(allow_readonly=False, require_role=[ROLES.badlist_manage])
 def add_attribution(qhash, attrib_type, value, **_):
     """
-    Add an attribution to the coresponding hash
+    Add an attribution to the corresponding hash
 
     Variables:
     qhash       => Hash to change
@@ -697,7 +697,7 @@ def add_attribution(qhash, attrib_type, value, **_):
 @api_login(allow_readonly=False, require_role=[ROLES.badlist_manage])
 def remove_attribution(qhash, attrib_type, value, **_):
     """
-    Delete an attribution to the coresponding hash
+    Delete an attribution to the corresponding hash
 
     Variables:
     qhash       => Hash to change

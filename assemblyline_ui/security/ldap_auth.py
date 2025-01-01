@@ -259,7 +259,7 @@ class BasicLDAPWrapper(object):
                 self.cache[user] = cache_entry
                 return cache_entry
         except Exception as e:
-            # raise AuthenticationException('Unable to login to ldap server. [%s]' % str(e))
+            # raise AuthenticationException('Unable to log in to ldap server. [%s]' % str(e))
             log.exception('Unable to login to ldap server. [%s]' % str(e))
         return None
 

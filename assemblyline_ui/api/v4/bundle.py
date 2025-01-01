@@ -32,7 +32,7 @@ def create_bundle(sid, **kwargs):
     sid         => ID of the submission to create the bundle for
 
     Arguments:
-    use_alert   => The ID provided is from an alert and we will use it to create the bundle
+    use_alert   => The ID provided is from an alert, and we will use it to create the bundle
 
     Data Block:
     None
@@ -60,7 +60,7 @@ def create_bundle(sid, **kwargs):
             return make_api_response("", "Submission %s does not exist. [%s]" % (sid, str(snf)), 404)
         except BundlingException as be:
             return make_api_response("",
-                                     "An error occured while bundling submission %s. [%s]" % (sid, str(be)),
+                                     "An error occurred while bundling submission %s. [%s]" % (sid, str(be)),
                                      404)
         finally:
             try:
@@ -84,7 +84,7 @@ def import_bundle(**_):
 
     Arguments:
     allow_incomplete        => allow importing incomplete submission
-    rescan_services         => Comma seperated list of services to rescan after importing the bundle
+    rescan_services         => Comma separated list of services to rescan after importing the bundle
     min_classification      => Minimum classification that the files and result from the bundle should get
     exist_ok                => Does not fail if submission already exists
 

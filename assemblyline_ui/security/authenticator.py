@@ -197,7 +197,7 @@ def default_authenticator(auth, req, ses, storage):
     # Bruteforce protection
     auth_fail_queue = NamedQueue("ui-failed-%s" % uname, **nonpersistent_config)
     if auth_fail_queue.length() >= config.auth.internal.max_failures:
-        # Failed 'max_failures' times, stop trying... This will timeout in 'failure_ttl' seconds
+        # Failed 'max_failures' times, stop trying... This will time out in 'failure_ttl' seconds
         raise AuthenticationException("Maximum password retry of {retry} was reached. "
                                       "This account is locked for the next {ttl} "
                                       "seconds...".format(retry=config.auth.internal.max_failures,
@@ -205,7 +205,7 @@ def default_authenticator(auth, req, ses, storage):
 
     try:
         roles_limit = None
-        # These steps skips 2FA
+        # These steps skip 2FA
         validated_user, roles_limit = validate_apikey(uname, apikey, storage)
         if not validated_user:
             validated_user, roles_limit = validate_oauth_token(oauth_token, oauth_provider)

@@ -35,7 +35,7 @@ class OpenAIAgent(AIAgent):
             # Call API
             resp = self.session.post(self.config.chat_url, json=data)
         except Exception as e:
-            message = f"An exception occured while trying to {action} with AI on " \
+            message = f"An exception occurred while trying to {action} with AI on " \
                       f"server {self.config.chat_url} with model {self.config.model_name}. [{e}]"
             self.logger.warning(message)
             raise APIException(message)

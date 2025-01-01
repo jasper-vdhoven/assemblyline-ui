@@ -138,10 +138,10 @@ def put_message(message_type, **_):
 @api_login(require_role=[ROLES.replay_trigger])
 def request_replay(index, doc_id, **kwargs):
     """
-    Request an alert or a submission to be transfered to another system
+    Request an alert or a submission to be transferred to another system
 
     Variables:
-    index         =>    Type of document to be transfered (alert or submission)
+    index         =>    Type of document to be transferred (alert or submission)
     doc_id        =>    ID of the document to transfer
 
     Arguments:
@@ -173,11 +173,11 @@ def request_replay(index, doc_id, **kwargs):
 @api_login(require_role=[ROLES.replay_system])
 def set_replay_complete(index, doc_id, **kwargs):
     """
-    Mark an alert or submission successfully transfered to another system
+    Mark an alert or submission successfully transferred to another system
 
     Variables:
-    index         =>    Type of document transfered (alert or submission)
-    doc_id        =>    ID of the document transfered
+    index         =>    Type of document transferred (alert or submission)
+    doc_id        =>    ID of the document transferred
 
     Arguments:
     None
@@ -208,7 +208,7 @@ def set_replay_complete(index, doc_id, **kwargs):
 @api_login(audit=False, require_role=[ROLES.replay_system])
 def set_bulk_replay_pending(**kwargs):
     """
-    Set the replay pending state on alert or submissions maching the queries
+    Set the replay pending state on alert or submissions matching the queries
 
     Variables:
     None

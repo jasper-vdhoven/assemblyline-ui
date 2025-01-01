@@ -162,7 +162,7 @@ def test_tag_found(test_client, mock_lookup_exists):
 
 
 def test_tag_dne(test_client, mocker):
-    """Validate respone for various tags that do not exists."""
+    """Validate respone for various tags that do not exist."""
     digest = "a" * 32
     mock_response = mocker.MagicMock()
     mock_response.status_code = 404

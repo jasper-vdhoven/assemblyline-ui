@@ -64,7 +64,7 @@ auth_api._doc = "Allow user to authenticate to the web server"
 @api_login(audit=False, require_role=[ROLES.apikey_access], count_toward_quota=False)
 def add_apikey(name, priv, **kwargs):
     """
-    Add an API Key for the currently logged in user with given privileges
+    Add an API Key for the currently logged-in user with given privileges
 
     Variables:
     name    => Name of the API key
@@ -121,7 +121,7 @@ def add_apikey(name, priv, **kwargs):
 @api_login(audit=False, require_role=[ROLES.apikey_access], count_toward_quota=False)
 def delete_apikey(name, **kwargs):
     """
-    Delete an API Key matching specified name for the currently logged in user
+    Delete an API Key matching specified name for the currently logged-in user
 
     Variables:
     name    => Name of the API key
@@ -178,7 +178,7 @@ def delete_obo_token(token_id, **kwargs):
 @api_login(audit=False, require_role=[ROLES.self_manage], count_toward_quota=False)
 def disable_otp(**kwargs):
     """
-    Disable OTP for the currently logged in user
+    Disable OTP for the currently logged-in user
 
     Variables:
     None
@@ -358,7 +358,7 @@ def login(**_):
 
     Result example:
     {
-     "username": <Logged in user>, # Username for the logged in user
+     "username": <Logged-in user>, # Username for the logged-in user
      "privileges": ["R", "W"],     # Different privileges that the user will get for this session
      "session_duration": 60        # Time after which this session becomes invalid
                                    #   Note: The timer reset after each call
@@ -543,7 +543,7 @@ def saml_acs(**_):
     request_id: str = flsk_session.pop("AuthNRequestID", None)
 
     if not request_id:
-        # Could not found the request ID, this token was already used, redirect to the UI with the error
+        # Could not find the request ID, this token was already used, redirect to the UI with the error
         msg = "Invalid SAML token"
         data = base64.b64encode(json.dumps({'error': msg}).encode('utf-8')).decode()
         return redirect(f"https://{config.ui.fqdn}/saml/?data={data}")
@@ -605,12 +605,12 @@ def saml_acs(**_):
             STORAGE.user.save(username, cur_user)
 
         else:
-            # User does not exists and auto_create is OFF, redirect to the UI with the error
+            # User does not exist and auto_create is OFF, redirect to the UI with the error
             msg = "User does not exists"
             data = base64.b64encode(json.dumps({'error': msg}).encode('utf-8')).decode()
             return redirect(f"https://{config.ui.fqdn}/saml/?data={data}")
 
-        # Generating the Token the UI will use to login
+        # Generating the Token the UI will use to log in
         saml_token_id = hashlib.sha256(request_id.encode("utf-8", errors='replace')).hexdigest()
 
         if get_token_store(username, 'saml').exist(saml_token_id):
@@ -680,7 +680,7 @@ def oauth_validate(**_):
                 oauth_provider_config = config.auth.oauth.providers[oauth_provider]
 
                 # If not secrets are provided and Azure federated credentials vars are loaded in the pod,
-                # we will use the federated credential to login our provider to Azure AD
+                # we will use the federated credential to log in our provider to Azure AD
                 if not provider.client_secret:
                     client_assertion = None
                     token_file = os.environ.get("AZURE_FEDERATED_TOKEN_FILE")
@@ -807,7 +807,7 @@ def oauth_validate(**_):
                     username = data['uname']
                     email_adr = data['email']
 
-                    # Add add dynamic classification group
+                    # Add dynamic classification group
                     data['classification'] = get_dynamic_classification(data['classification'], data)
 
                     # Make sure the user exists in AL and is in sync
@@ -931,7 +931,7 @@ def reset_pwd(**_):
 @api_login(audit=False, require_role=[ROLES.self_manage], count_toward_quota=False)
 def setup_otp(**kwargs):
     """
-    Setup OTP for the currently logged in user
+    Setup OTP for the currently logged-in user
 
     Variables:
     None

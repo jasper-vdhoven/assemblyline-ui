@@ -74,7 +74,7 @@ def add_workflow(**kwargs):
 
     Result example:
     {
-     "success": true             # Saving the user info succeded
+     "success": true             # Saving the user info succeeded
     }
     """
 
@@ -137,7 +137,7 @@ def edit_workflow(workflow_id, **kwargs):
 
     Result example:
     {
-     "success": true             # Saving the user info succeded
+     "success": true             # Saving the user info succeeded
     }
     """
     data = request.json

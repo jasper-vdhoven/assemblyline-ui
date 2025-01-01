@@ -581,7 +581,7 @@ def trigger_signature_source_update(service, **_):
         key=f'{src}.status', value=dict(state='UPDATING', message='Queued for update..', ts=now_as_iso()))
      for src in sources]
 
-    # Send event to service update to trigger a targetted source update
+    # Send event to service update to trigger a targeted source update
     source_event_sender.send(service.lower(), data=sources)
 
     return make_api_response({"success": True, "sources": sources})

@@ -1,6 +1,6 @@
 """Example interface for federated lookup plugins/extensions.
 
-Defines the require API required to be implemented in order for federated
+Defines the API required to be implemented in order for federated
 lookups to be performed against external systems in Assemblyline.
 
 These implemented microservices are responsible for translating the AL tags into the

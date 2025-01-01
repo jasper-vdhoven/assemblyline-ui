@@ -109,7 +109,7 @@ def test_client(ext_config):
 
 @pytest.fixture()
 def user_login_session(test_client):
-    """Setup a login session for the test_client."""
+    """Set up a login session for the test_client."""
     r = test_client.post("/api/v4/auth/login/", data={"user": "user", "password": "user"})
     for name, value in r.headers:
         if name == "Set-Cookie" and "XSRF-TOKEN" in value:
@@ -122,7 +122,7 @@ def user_login_session(test_client):
 
 @pytest.fixture()
 def admin_login_session(test_client):
-    """Setup a login session for the test_client."""
+    """Set up a login session for the test_client."""
     r = test_client.post("/api/v4/auth/login/", data={"user": "admin", "password": "admin"})
     for name, value in r.headers:
         if name == "Set-Cookie" and "XSRF-TOKEN" in value:
@@ -258,7 +258,7 @@ def test_hash_search(datastore, login_session):
 def test_external_hash_multi_hit(datastore, user_login_session, mock_get, mock_lookup_success_response, digest):
     """Lookup a valid hash with multiple configured sources.
 
-    Given external lookups for both Malware Bazaar and Virustoal are configured
+    Given external lookups for both Malware Bazaar and Virustotal are configured
         And local lookups for `al` and `alert` are configured
         And the given hash type is valid for both sources
         And the given hash exists in both sources
@@ -279,7 +279,7 @@ def test_external_hash_multi_hit(datastore, user_login_session, mock_get, mock_l
 
     # A query for each source should be sent
     assert mock_get.call_count == 2
-    # Expect correctly formatted mocked reponse
+    # Expect correctly formatted mocked response
     assert rsp.status_code == 200
     data = rsp.json["api_response"]
     expected = {
@@ -313,7 +313,7 @@ def test_external_hash_multi_hit_filter(
         datastore, user_login_session, mock_get, mock_lookup_success_response):
     """Lookup a valid hash with multiple configured sources but place a filter.
 
-    Given an external lookup for both Malware Bazaar and Virustoal is configured
+    Given an external lookup for both Malware Bazaar and Virustotal is configured
         And local lookups for `al` and `alert` are configured
         And a given hash exists in both sources
 
@@ -355,7 +355,7 @@ def test_external_hash_filter_all(
         datastore, user_login_session, mock_get):
     """Lookup a valid hash with multiple configured sources but place a filter for a non-configured source.
 
-    Given an external lookup for both Malware Bazaar and Virustoal is configured
+    Given an external lookup for both Malware Bazaar and Virustotal is configured
         And local lookups for `al` and `alert` are configured
         And a given hash exists in both external sources
 
@@ -383,7 +383,7 @@ def test_external_hash_multi_source_single_hit(
         datastore, user_login_session, mock_get, mock_lookup_success_response, mock_lookup_error_response):
     """Lookup a valid hash type in multiple configured sources but found in only one source.
 
-    Given an external lookup for both Malware Bazaar and Virustoal is configured
+    Given an external lookup for both Malware Bazaar and Virustotal is configured
         And local lookups for `al` and `alert` are configured
         And the given hash exists only in Malware Bazaar
 
@@ -409,7 +409,7 @@ def test_external_hash_multi_source_single_hit(
     # A query for each source should be sent
     assert mock_get.call_count == 2
 
-    # Expect correctly formatted mocked reponse
+    # Expect correctly formatted mocked response
     assert rsp.status_code == 200
     data = rsp.json["api_response"]
     expected = {
@@ -435,7 +435,7 @@ def test_external_hash_multi_source_invalid_single(
         datastore, user_login_session, mock_get, mock_lookup_success_response, mock_lookup_error_response):
     """With multiple configured sources look up a hash type that is valid in only one of those sources.
 
-    Given an external lookup for both Malware Bazaar and Virustoal is configured
+    Given an external lookup for both Malware Bazaar and Virustotal is configured
         And local lookups for `al` and `alert` are configured
         And the `tlsh` hash type is only valid for Malware Bazaar
         And two entities in Malware Bazaar have the given `tlsh`
@@ -475,7 +475,7 @@ def test_external_hash_multi_source_invalid_single(
 
     # A query for only sources where hash type is valid should be called
     assert mock_get.call_count == 1
-    # Expect correctly formatted mocked reponse
+    # Expect correctly formatted mocked response
     assert rsp.status_code == 200
     data = rsp.json["api_response"]
     expected = {
@@ -507,7 +507,7 @@ def test_external_hash_multi_source_invalid_all(
         datastore, user_login_session, mock_get, mock_lookup_error_response):
     """With multiple configured sources look up hash type that is not valid in any of the sources.
 
-    Given an external lookup for both Malware Bazaar and Virustoal is configured
+    Given an external lookup for both Malware Bazaar and Virustotal is configured
         And local lookups for `al` and `alert` are configured
         And `customhash` hash type is not valid for Malware Bazaar or Virustotal
 
@@ -530,7 +530,7 @@ def test_external_hash_multi_source_invalid_all(
 
     # A query for only sources where hash type is valid should be called
     assert mock_get.call_count == 0
-    # Expect correctly formatted mocked reponse
+    # Expect correctly formatted mocked response
     assert rsp.status_code == 400
     assert rsp.json["api_response"] == ""
     assert rsp.json["api_error_message"].startswith("Invalid hash")
@@ -540,7 +540,7 @@ def test_external_hash_multi_source_invalid_filtered(
         datastore, user_login_session, mock_get, mock_lookup_error_response):
     """With multiple configured sources look up hash type that is valid for a source, but that source is filtered.
 
-    Given an external lookup for both Malware Bazaar and Virustoal is configured
+    Given an external lookup for both Malware Bazaar and Virustotal is configured
         And local lookups for `al` and `alert` are configured
         And the `tlsh` hash type is only valid for Malware Bazaar
 
@@ -566,7 +566,7 @@ def test_external_hash_multi_source_invalid_filtered(
 
     # A query for only sources where hash type is valid should be called
     assert mock_get.call_count == 0
-    # Expect correctly formatted mocked reponse
+    # Expect correctly formatted mocked response
     assert rsp.status_code == 422
     data = rsp.json["api_response"]
     expected = {
@@ -609,7 +609,7 @@ def test_access_control_source_filtering(
     # Only queries to access allowed sources should go through
     assert mock_get.call_count == 1
 
-    # Expect correctly formatted mocked reponse
+    # Expect correctly formatted mocked response
     assert rsp.status_code == 200
     data = rsp.json["api_response"]
     expected = {
@@ -682,7 +682,7 @@ def test_access_control_result_filtering(
     # All queries should be made
     assert mock_get.call_count == 2
 
-    # Expect correctly formatted mocked reponse
+    # Expect correctly formatted mocked response
     assert rsp.status_code == 200
     data = rsp.json["api_response"]
     expected = {
@@ -707,7 +707,7 @@ def test_access_control_hash_type_max_classification(datastore, user_login_sessi
     Given an external lookup for InternalSource is configured
         And local lookups for `al` and `alert` are configured
         And the given `sha1` value exists in InternalSource
-        And InsternalSource's maximum classification is RESTRICTED
+        And InternalSource's maximum classification is RESTRICTED
         And InternalSource's classification is UNRESTRICTED
         And the `sha1` has type has a classification of RESTRICTED
 

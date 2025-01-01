@@ -395,7 +395,7 @@ def list_grouped_alerts(field, **kwargs):
             # Update total
             counted_total += item['total']
 
-            # Gather the first alert sample, set it's group_count and add it to the alert list
+            # Gather the first alert sample, set its group_count and add it to the alert list
             data = item['items'][0]
             data['group_count'] = item['total']
             alerts.append(data)

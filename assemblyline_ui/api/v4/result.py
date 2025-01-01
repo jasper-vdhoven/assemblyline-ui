@@ -84,7 +84,7 @@ def get_service_error(cache_key, **_):
     {"created": "1900-01-01T00:00:00Z",   # Time at which the error was created
      "response": {                        # Service Response
          "message": "Err message",           # Error Message
-         "service_debug_info": "",           # Infromation about where the job was processed
+         "service_debug_info": "",           # Information about where the job was processed
          "service_name": "NSRL",             # Service Name
          "service_version": "",              # Service Version
          "status": "FAIL"}                   # Status

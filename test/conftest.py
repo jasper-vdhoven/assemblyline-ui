@@ -41,7 +41,7 @@ def skip_or_fail(message):
         original_skip(message)
 
 
-# Replace the built in skip function with our own
+# Replace the built-in skip function with our own
 pytest.skip = skip_or_fail
 
 

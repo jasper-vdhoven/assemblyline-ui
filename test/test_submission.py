@@ -166,7 +166,7 @@ def test_set_verdict(datastore, login_session):
     assert 'admin' in submission_data['verdict']['malicious']
     assert 'admin' not in submission_data['verdict']['non_malicious']
 
-    # Test setting NON-MALICOUS verdict
+    # Test setting NON-MALICIOUS verdict
     resp = get_api_data(session, f"{host}/api/v4/submission/verdict/{submission['sid']}/non_malicious/", method="PUT")
     assert resp['success']
 

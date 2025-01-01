@@ -16,7 +16,7 @@ def get_message(wq_id, **_):
     """
     Get a message from a live watch queue.
     Note: This method is not optimal because it requires the
-          UI to pull the information. The prefered method is the
+          UI to pull the information. The preferred method is the
           socket server.
 
     Variables:
@@ -61,7 +61,7 @@ def get_messages(wq_id, **_):
     """
     Get all messages currently on a watch queue.
     Note: This method is not optimal because it requires the
-          UI to pull the information. The prefered method is the
+          UI to pull the information. The preferred method is the
           socket server when possible.
 
     Variables:
@@ -118,7 +118,7 @@ def outstanding_services(sid, **kwargs):
     None
 
     Result example:
-    {"MY SERVICE": 1, ... } # Dictionnary of services and number of files
+    {"MY SERVICE": 1, ... } # Dictionary of services and number of files
     """
     data = STORAGE.submission.get(sid, as_obj=False)
     user = kwargs['user']

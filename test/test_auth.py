@@ -54,17 +54,17 @@ def test_api_keys(datastore, login_session):
     write_pass = resp.get('apikey', None)
     assert write_pass is not None
 
-    # Try to login with the read key
+    # Try to log in with the read key
     resp = get_api_data(session, f"{host}/api/v4/auth/login/",
                         params={'user': 'admin', 'apikey': read_pass})
     assert sorted(resp.get('roles_limit', [])) == sorted(ACL_MAP["R"])
 
-    # Try to login with the read/write key
+    # Try to log in with the read/write key
     resp = get_api_data(session, f"{host}/api/v4/auth/login/",
                         params={'user': 'admin', 'apikey': read_write_pass})
     assert sorted(resp.get('roles_limit', [])) == sorted(list(set(ACL_MAP["R"] + ACL_MAP["W"])))
 
-    # Try to login with the write key
+    # Try to log in with the write key
     resp = get_api_data(session, f"{host}/api/v4/auth/login/",
                         params={'user': 'admin', 'apikey': write_pass})
     assert sorted(resp.get('roles_limit', [])) == sorted(ACL_MAP["W"])

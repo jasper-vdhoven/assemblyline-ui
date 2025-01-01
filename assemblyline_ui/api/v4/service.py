@@ -815,7 +815,7 @@ def set_service(servicename, **_):
      'timeout': 60}
 
     Result example:
-    {"success": true }    #Saving the user info succeded
+    {"success": true }    #Saving the user info succeeded
     """
     data = request.json
     version = data.get('version', None)
