@@ -359,7 +359,7 @@ def summarize_code_snippet(sha256, **kwargs):
     # Create the cache key
     cache_key = CACHE.create_key(sha256, user['classification'], lang, with_trace, "code")
     ai_summary = None
-    if (not no_cache):
+    if not no_cache:
         # Get the summary from cache
         ai_summary = CACHE.get(cache_key)
 
@@ -817,7 +817,7 @@ def get_file_results(sha256, **kwargs):
                     index = next((i for i, x in enumerate(output["tags"][t['type']])
                                   if x[0] == t_item[0] and x[1] == t_item[1]), None)
 
-                    if index == None:
+                    if index is None:
                         output["tags"][t['type']].append(t_item)
                     else:
                         existing = output["tags"][t['type']][index]

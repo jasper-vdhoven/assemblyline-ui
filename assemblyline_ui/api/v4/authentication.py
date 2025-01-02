@@ -593,11 +593,11 @@ def saml_acs(**_):
             data['roles'] = load_roles(data['type'], user_roles)
 
             # Load in the user DN
-            if (dn := get_attribute(saml_user_data, "dn")):
+            if dn := get_attribute(saml_user_data, "dn"):
                 data['dn'] = dn
 
             # Get the dynamic classification info
-            if (u_classification := get_attribute(saml_user_data, 'classification')):
+            if u_classification := get_attribute(saml_user_data, 'classification'):
                 data["classification"] = get_dynamic_classification(u_classification, data)
 
             # Save the updated user

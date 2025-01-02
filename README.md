@@ -12,7 +12,7 @@ This component provides the User Interface as well as the different APIs and soc
 ## Image variants and tags
 
 | **Tag Type** | **Description**                                                                                  |      **Example Tag**       |
-| :----------: | :----------------------------------------------------------------------------------------------- | :------------------------: |
+|:------------:|:-------------------------------------------------------------------------------------------------|:--------------------------:|
 |    latest    | The most recent build (can be unstable).                                                         |          `latest`          |
 |  build_type  | The type of build used. `dev` is the latest unstable build. `stable` is the latest stable build. |     `stable` or `dev`      |
 |    series    | Complete build details, including version and build type: `version.buildType`.                   | `4.5.stable`, `4.5.1.dev3` |
@@ -21,7 +21,7 @@ This component provides the User Interface as well as the different APIs and soc
 
 ### APIs
 
-Assemblyline 4 provides a large set of API that can provide you with all the same information you will find in it's UI and even more. The list of APIs and their functionality is described in the help section of the UI.
+Assemblyline 4 provides a large set of API that can provide you with all the same information you will find in its UI and even more. The list of APIs and their functionality is described in the help section of the UI.
 
 All APIs in Assemblyline output their result in the same manner for consistency:
 
@@ -46,7 +46,7 @@ docker run --name ui cccs/assemblyline-service-ui
 
 Assemblyline 4 also provide a list of SocketIO endpoints to get information about the system live. The endpoints will provide authenticated access to many Redis broadcast queues. It is a way for the system to notify user of changes and health of the system without having them to query for that information.
 
-The following queues can be listen on:
+The following queues can be listened on:
 
 - Alerts created
 - Submissions ingested
@@ -72,10 +72,10 @@ Ce composant fournit l'interface utilisateur ainsi que les différentes API et l
 ## Variantes et étiquettes d'image
 
 | **Type d'étiquette** | **Description**                                                                                                                    |  **Exemple d'étiquette**   |
-| :------------------: | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------: |
+|:--------------------:|:-----------------------------------------------------------------------------------------------------------------------------------|:--------------------------:|
 |       dernière       | La version la plus récente (peut être instable).                                                                                   |          `latest`          |
 |      build_type      | Le type de compilation utilisé. `dev` est la dernière version instable. `stable` est la dernière version stable. `stable` ou `dev` |     `stable` ou `dev`      |
-|        séries        | Le détail de compilation utilisé, incluant la version et le type de compilation : `version.buildType`.                                               | `4.5.stable`, `4.5.1.dev3` |
+|        séries        | Le détail de compilation utilisé, incluant la version et le type de compilation : `version.buildType`.                             | `4.5.stable`, `4.5.1.dev3` |
 
 ## Composants
 
