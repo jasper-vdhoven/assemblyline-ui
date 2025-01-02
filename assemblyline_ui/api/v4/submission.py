@@ -536,7 +536,7 @@ def get_ai_summary(sid, **kwargs):
     cache_key = CACHE.create_key(sid, user['classification'], index_type,
                                  archive_only, detailed, lang, with_trace, "submission")
     ai_summary = None
-    if (not no_cache):
+    if not no_cache:
         # Get the summary from cache
         ai_summary = CACHE.get(cache_key)
 

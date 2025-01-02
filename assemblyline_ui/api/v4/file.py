@@ -298,7 +298,7 @@ def summarized_results(sha256, **kwargs):
     # Create the cache key
     cache_key = CACHE.create_key(sha256, user['classification'], index_type, archive_only, lang, with_trace, "file")
     ai_summary = None
-    if (not no_cache):
+    if not no_cache:
         # Get the summary from cache
         ai_summary = CACHE.get(cache_key)
 

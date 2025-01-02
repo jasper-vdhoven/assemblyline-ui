@@ -109,7 +109,7 @@ def resubmit_for_dynamic(sha256, *args, **kwargs):
                 return make_api_response({}, "File %s cannot be found on the server therefore it cannot be resubmitted."
                                          % sha256, status_code=404)
 
-        if (file_info["type"].startswith("uri/") and "uri_info" in file_info and "uri" in file_info["uri_info"]):
+        if file_info["type"].startswith("uri/") and "uri_info" in file_info and "uri" in file_info["uri_info"]:
             name = safe_str(file_info["uri_info"]["uri"])
             submission_params['description'] = f"Resubmit {file_info['uri_info']['uri']} for Dynamic Analysis"
         else:

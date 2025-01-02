@@ -17,7 +17,7 @@ class UnimplementedException(Exception):
     pass
 
 
-class AIAgent():
+class AIAgent:
     def __init__(self, config: AIConnection, function_params: AIFunctionParameters, logger=None) -> None:
         self.config = config
         self.params = function_params
@@ -57,6 +57,7 @@ class AIAgent():
 
 class AIAgentPool():
     def __init__(self, config: Config, api_backends: List[AIAgent] = [],
+class AIAgentPool:
                  logger=None, ds=None, classification=None) -> None:
         # Load pool dependencies
         self.logger = logger or PrintLogger()

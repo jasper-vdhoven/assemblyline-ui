@@ -26,7 +26,7 @@ federated_lookup_api = make_subapi_blueprint(SUB_API, api_version=4)
 federated_lookup_api._doc = "Lookup related data through configured external data sources/systems."
 
 
-class _Tags():
+class _Tags:
     """Locally cache supported tags."""
 
     def __init__(self) -> None:

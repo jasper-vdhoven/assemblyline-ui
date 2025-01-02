@@ -281,7 +281,7 @@ def update_comment(sha256, cid, **kwargs):
                     {"success": False},
                     f"No comment with an id of \"{cid}\" was found in this file", status_code=404)
 
-            if (file_obj['comments'][index]['uname'] != user['uname']):
+            if file_obj['comments'][index]['uname'] != user['uname']:
                 return make_api_response({"success": False}, "Another user's comment cannot be updated.", 403)
 
             file_obj['comments'][index].update({'text': text})
@@ -345,7 +345,7 @@ def delete_comment(sha256, cid, **kwargs):
             if index is None:
                 return make_api_response({"success": False}, "The comment was not found within the file.", 404)
 
-            if (file_obj['comments'][index]['uname'] != user['uname']):
+            if file_obj['comments'][index]['uname'] != user['uname']:
                 return make_api_response({"success": False}, "Another user's comment cannot be deleted.", 403)
 
             file_obj['comments'].pop(index)

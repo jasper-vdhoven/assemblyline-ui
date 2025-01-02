@@ -210,7 +210,7 @@ def tag_details(tag_name: str, tag: str) -> Response:
     return make_api_response([r])
 
 
-class Enricher():
+class Enricher:
     """Object to parse and hold enrichment info."""
 
     def __init__(self, data: dict) -> None:

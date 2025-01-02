@@ -223,7 +223,7 @@ class BasicLDAPWrapper(object):
                             for group_match in all_matches:
                                 for group_value in auto_prop.value:
                                     if not isinstance(group_match, tuple):
-                                        group_match = (group_match)
+                                        group_match = group_match
                                     for index, gm_value in enumerate(group_match):
                                         group_value = group_value.replace(f"${index+1}", gm_value)
                                     if group_value not in groups:

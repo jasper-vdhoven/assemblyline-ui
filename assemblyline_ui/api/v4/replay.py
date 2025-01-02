@@ -122,11 +122,11 @@ def put_message(message_type, **_):
         return make_api_response("", f"{message_type.upper()} is not a valid message type for this API.", 400)
 
     message = request.json
-    if (message_type == 'alert' and sorted(message.keys()) == ["alert_id", "reporting_ts"]):
+    if message_type == 'alert' and sorted(message.keys()) == ["alert_id", "reporting_ts"]:
         QUEUE_MAP[message_type].push(message)
-    elif (message_type == 'submission' and sorted(message.keys()) == ["sid", "times"]):
+    elif message_type == 'submission' and sorted(message.keys()) == ["sid", "times"]:
         QUEUE_MAP[message_type].push(message)
-    elif (message_type == 'file' and isinstance(message, str)):
+    elif message_type == 'file' and isinstance(message, str):
         QUEUE_MAP[message_type].push(message)
     else:
         return make_api_response("", f"Invalid message for type {message_type.upper()}: {message}", 400)

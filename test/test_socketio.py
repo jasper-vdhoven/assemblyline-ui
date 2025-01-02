@@ -160,9 +160,10 @@ def test_live_namespace(datastore, sio):
 
 
 # noinspection PyUnusedLocal
-def test_status_namspace(datastore, sio):
+def test_status_namespace(datastore, sio):
     status_queue = CommsQueue('status', private=True)
     monitoring = get_random_id()
+
 
     alerter_hb_msg = random_model_obj(AlerterMessage).as_primitives()
     dispatcher_hb_msg = random_model_obj(DispatcherMessage).as_primitives()
