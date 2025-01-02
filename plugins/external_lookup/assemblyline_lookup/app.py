@@ -148,7 +148,7 @@ def tag_details(tag_name: str, tag: str) -> Response:
             f"Invalid tag name: {tag_name}. [valid tags: {', '.join(TAG_MAPPING.keys())}]",
             422,
         )
-    enrich = not request.args.get("nodata", "false").lower() in ("true", "1")
+    enrich = request.args.get("nodata", "false").lower() not in ("true", "1")
 
     limit = request.args.get("limit", 100, type=int)
     if limit > int(MAX_LIMIT):

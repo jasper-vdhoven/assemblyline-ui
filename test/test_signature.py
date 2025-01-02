@@ -269,7 +269,7 @@ def test_set_signature_source_status(datastore, login_session):
             found = True
             break
 
-    assert found and source['enabled'] == False
+    assert found and source['enabled'] is False
 
 # noinspection PyUnusedLocal
 def test_download_signatures(datastore, login_session):
