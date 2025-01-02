@@ -16,7 +16,11 @@ alert_api = make_subapi_blueprint(SUB_API, api_version=4)
 alert_api._doc = "Perform operations on alerts"
 
 
-def get_alert_update_ops(user_id: str, status: str = None, priority: str = None, labels=[], labels_removed=[]) -> dict:
+def get_alert_update_ops(user_id: str, status: str = None, priority: str = None, labels=None, labels_removed=None) -> dict:
+    if labels_removed is None:
+        labels_removed = set()
+    if labels is None:
+        labels = set()
     operations = []
     if status:
         operations.append((STORAGE.alert.UPDATE_SET, 'status', status))

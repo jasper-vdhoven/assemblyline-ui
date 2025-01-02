@@ -234,8 +234,12 @@ def validate_redirect(r, **_):
 
 
 def download_from_url(download_url, target, data=None, method="GET",
-                      headers={}, proxies={}, verify=True, validate=True, failure_pattern=None,
+                      headers=None, proxies=None, verify=True, validate=True, failure_pattern=None,
                       timeout=None, ignore_size=False):
+    if proxies is None:
+        proxies = {}
+    if headers is None:
+        headers = {}
     hooks = None
     if validate:
         url = validate_url(download_url)

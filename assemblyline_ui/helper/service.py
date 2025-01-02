@@ -8,7 +8,9 @@ from assemblyline.odm.models.user_settings import UserSettings
 USER_SETTINGS_FIELDS = list(UserSettings.fields().keys())
 SUBMISSION_PARAM_FIELDS = list(SubmissionParams.fields().keys())
 
-def get_default_service_spec(srv_list=None, user_default_values={}, classification=CLASSIFICATION.UNRESTRICTED):
+def get_default_service_spec(srv_list=None, user_default_values=None, classification=CLASSIFICATION.UNRESTRICTED):
+    if user_default_values is None:
+        user_default_values = {}
     if not srv_list:
         srv_list = SERVICE_LIST
 

@@ -14,8 +14,12 @@ ontology_api = make_subapi_blueprint(SUB_API, api_version=4)
 ontology_api._doc = "Download ontology results from the system"
 
 
-def generate_ontology_file(results, user, updates={}, fnames={}):
+def generate_ontology_file(results, user, updates=None, fnames=None):
     # Load ontology files
+    if fnames is None:
+        fnames = {}
+    if updates is None:
+        updates = {}
     sio = StringIO()
 
     # Start downloading all ontology files

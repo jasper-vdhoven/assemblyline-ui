@@ -55,11 +55,12 @@ class AIAgent:
         self.definition_prompt = definition_prompt
 
 
-class AIAgentPool():
-    def __init__(self, config: Config, api_backends: List[AIAgent] = [],
 class AIAgentPool:
+    def __init__(self, config: Config, api_backends=None,
                  logger=None, ds=None, classification=None) -> None:
         # Load pool dependencies
+        if api_backends is None:
+            api_backends = []
         self.logger = logger or PrintLogger()
         self.config = config
         self.ds = ds or forge.get_datastore()
