@@ -14,7 +14,7 @@ class InvalidSectionList(Exception):
     pass
 
 
-def build_heirarchy_rec(sections, current_id=0, current_lvl=0, parent=None):
+def build_hierarchy_rec(sections, current_id=0, current_lvl=0, parent=None):
     if parent is None:
         parent = {"id": None, "children": []}
 
@@ -31,7 +31,7 @@ def build_heirarchy_rec(sections, current_id=0, current_lvl=0, parent=None):
         elif sec['depth'] > current_lvl:
             try:
                 # noinspection PyUnboundLocalVariable
-                _, current_id = build_heirarchy_rec(sections, current_id, current_lvl + 1, prev)
+                _, current_id = build_hierarchy_rec(sections, current_id, current_lvl + 1, prev)
             except UnboundLocalError:
                 raise InvalidSectionList("Section list is invalid. Cannot build a tree from it...")
         else:
@@ -113,7 +113,7 @@ def format_result(user_classification, r, min_classification, build_hierarchy=Fa
 
     if build_hierarchy:
         try:
-            section_hierarchy, _ = build_heirarchy_rec(r['result']['sections'])
+            section_hierarchy, _ = build_hierarchy_rec(r['result']['sections'])
             r['section_hierarchy'] = section_hierarchy['children']
         except InvalidSectionList:
             LOGGER.warning(f"Could not generate section hierarchy for {r['response']['service_name']} "
