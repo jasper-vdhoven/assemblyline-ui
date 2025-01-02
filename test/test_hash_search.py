@@ -173,7 +173,7 @@ def mock_lookup_success_response(mocker):
         *,
         description="Malware",
         malicious=True,
-        confimred=False,
+        confirmed=False,
         data=None,
         classification=CLASSIFICATION.UNRESTRICTED,
         source="mb",
@@ -208,7 +208,7 @@ def mock_lookup_success_response(mocker):
             "api_response": [{
                 "description": description,
                 "malicious": malicious,
-                "confirmed": confimred,
+                "confirmed": confirmed,
                 "classification": classification,
                 "data": data,
             }],
