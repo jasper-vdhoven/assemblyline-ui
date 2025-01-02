@@ -164,7 +164,7 @@ class api_login(BaseSecurityRenderer):
                     user['classification'] = CLASSIFICATION.intersect_user_classification(
                         impersonator_user['classification'], user['classification'])
 
-                    # Set currently logged in user
+                    # Set currently logged-in user
                     logged_in_uname = user['uname']
                     LOGGER.info(f"{impersonator} [{ip}] is impersonating "
                                 f"{logged_in_uname} for query: {request.path}")
@@ -184,7 +184,7 @@ class api_login(BaseSecurityRenderer):
                 # Special username api query validation
                 #
                 #    If an API call requests a username, the username as to match
-                #    the logged in user or the user has to be ADMIN
+                #    the logged-in user or the user has to be ADMIN
                 #
                 #    API that needs this special validation need to make sure their
                 #    variable name for the username is as an optional parameter

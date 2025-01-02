@@ -77,7 +77,7 @@ def add_apikey(name, priv, **kwargs):
     ['submission_view', 'file_detail']  # List of roles if priv is CUSTOM
 
     Result example:
-    {"apikey": <ramdomly_generated_password>}
+    {"apikey": <randomly_generated_password>}
     """
     user = kwargs['user']
     user_data = STORAGE.user.get(user['uname'], as_obj=False)
@@ -519,7 +519,7 @@ def saml_sso(**_):
 
 @auth_api.route("/saml/acs/", methods=["GET", "POST"])
 def saml_acs(**_):
-    '''
+    """
     SAML Assertion Consumer Service (ACS). This is the endpoint the SAML server will redirect to
     with the authentication token. This endpoint will validate the token and create or link to
     the associated user. And will then redirect the user to the login page.
@@ -535,7 +535,7 @@ def saml_acs(**_):
 
     Result example:
     <REDIRECT TO AL's LOGIN PAGE>
-    '''
+    """
     if not config.auth.saml.enabled:
         return make_api_response({"err_code": 0}, err="SAML disabled on the server", status_code=401)
     request_data: Dict[str, Any] = _prepare_flask_request(request)
@@ -554,7 +554,7 @@ def saml_acs(**_):
     # If authentication failed, it'll be noted in `errors`
     if len(errors) == 0:
         # if the 'User' type is defined in the group_type_mapping
-        # limit access to group members, else allow all athenticated users
+        # limit access to group members, else allow all authenticated users
         valid_groups = config.auth.saml.attributes.group_type_mapping
         if 'user' in (value.lower() for value in valid_groups.values()):
             user_groups = auth.get_attribute(config.auth.saml.attributes.groups_attribute) or []
